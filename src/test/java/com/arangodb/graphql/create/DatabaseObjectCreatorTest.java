@@ -89,7 +89,7 @@ public class DatabaseObjectCreatorTest {
 
     private void attachEdgeDirectiveToMockType() {
         attachVertexDirectiveToMockType();
-
+        when(mockEdgeDirective.getArgument("direction")).thenReturn(null);
         when(mockFieldDefinition.getDirective("edge")).thenReturn(mockEdgeDirective);
         when(mockEdgeDirective.getArgument("collection")).thenReturn(mockEdgeArgument);
         when(mockEdgeArgument.getValue()).thenReturn(edgeCollectionName);
