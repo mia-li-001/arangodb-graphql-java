@@ -161,6 +161,8 @@ public class ResultResolverNodeHierarchyTest {
         topLevelFieldValues.put("__collection", "Document");
         topLevelFieldValues.put("secondLevelField", 41);
 
+        when(topLevelFieldDefinition.getDirective("edgeTarget")).thenReturn(null);
+        when(resultVertices.get("Document/1")).thenReturn(null);
         //Have an Edge directive
         when(topLevelFieldDefinition.getDirective("edge")).thenReturn(edgeDirective);
         when(edgeDirective.getArgument("collection")).thenReturn(collectionArgument);
