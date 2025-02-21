@@ -55,6 +55,7 @@ public class ArangoEdgeDirectiveTest {
         String expected = "collectionName";
 
         when(field.getDirective(eq("edge"))).thenReturn(schemaDirective);
+        when(schemaDirective.getArgument(eq("direction"))).thenReturn(null);
         when(schemaDirective.getArgument(eq("collection"))).thenReturn(argument);
         when(argument.getValue()).thenReturn(expected);
 
@@ -79,6 +80,7 @@ public class ArangoEdgeDirectiveTest {
     public void testNoCollection(){
 
         when(field.getDirective(eq("edge"))).thenReturn(schemaDirective);
+        when(schemaDirective.getArgument(eq("direction"))).thenReturn(null);
         when(schemaDirective.getArgument(eq("collection"))).thenReturn(null);
 
         directive = new ArangoEdgeDirective(field);
